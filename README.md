@@ -1,5 +1,9 @@
 # Github Actions Workflow Templates
 
+- [node server](node-server)
+- [open source module](open-source-module)
+- [publishing storybook to GitHub Pages](publish-storybook-to-gh-pages)
+
 All of these templates include:
 
 - Running tests on any commit push via `on: push:`
