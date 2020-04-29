@@ -17,7 +17,3 @@ Other templates:
 
 - [jonathanong/e2e](https://github.com/jonathanong/e2e) - template for running E2E tests via puppeteer, jest, and GitHub Actions
 - [jonathanong/google-lighthouse-ci](https://github.com/jonathanong/google-lighthouse-ci) - template for running [Google Lighthouse](https://developers.google.com/web/tools/lighthouse) on a regular cadence via GitHub Actions
-
-TODO:
-
-- Publish artifacts to S3
