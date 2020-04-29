@@ -34,10 +34,10 @@ jobs:
           restore-keys: |
             node-modules-cache-os-${{ runner.os }}-node-${{ matrix.node-version }}-package-lock-${{ hashFiles('package-lock.json') }}-job-id-${{ github.job }}-
             node-modules-cache-os-${{ runner.os }}-node-${{ matrix.node-version }}-package-lock-${{ hashFiles('package-lock.json') }}-
-      - run: npm run eslint
-      - run: npm run stylelint
-      - run: npm run build # build your frontend app
-      - run: npm run test -- --maxWorkers 2 --coverage --ci --verbose # run jest tests
+      - run: npx eslint . --cache --cache-location node_modules/.cache/eslint --ignore-path .gitignore
+      - run: npx stylelint '**/*.css' --cache --cache-location node_modules/.cache/eslint --ignore-path .gitignore
+      - run: npx webpack --config webpack.production.js
+      - run: npx jest --maxWorkers 2 --coverage --ci
       - run: npx codecov
 
   publish-storybook-to-gh-pages:
@@ -52,7 +52,7 @@ jobs:
         node-version: [12.x]
 
     env:
-      STORYBOOK_PUBLIC_PATH: /github-actions-workflow-templates/ # replace the public path with your repository name
+      STORYBOOK_PUBLIC_PATH: /github-actions-workflow-templates/ # replace `github-actions-workflow-templates` with your repository name
 
     steps:
       - uses: actions/checkout@v2

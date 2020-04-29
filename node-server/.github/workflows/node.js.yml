@@ -51,5 +51,5 @@ jobs:
     - run: npx eslint . --cache --cache-location node_modules/.cache/eslint --ignore-path .gitignore
     - run: npm db:setup # whatever command you use to setup your db
     # NOTE: set "cacheDirectory": "node_modules/.cache/jest" in your jest config
-    - run: npx jest --maxWorkers 4 --coverage --ci --verbose
+    - run: npx jest --coverage --maxWorkers 4
     - run: npx codecov
