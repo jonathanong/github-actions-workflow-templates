@@ -44,7 +44,9 @@ jobs:
     - name: Cache node_modules
       uses: actions/cache@v2
       with:
-        path: node_modules
+        path: |
+          node_modules
+          !node_modules/.cache
         key: node-modules-cache-os-${{ runner.os }}-node-${{ matrix.node-version }}-package-lock-${{ hashFiles('package.json', 'package-lock.json') }}
     - run: test -d "node_modules" && echo "node_modules already cached" || npm ci
     - name: Cache node_modules/.cache
